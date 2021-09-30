@@ -1,22 +1,21 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace ApiTestApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var apiClient = new RestApiClient();
 
-            int a = 0;
+            var users = await apiClient.GetUsersAsync();
 
-            int b = 1;
+            Console.WriteLine(users);
 
-            if (int a == int b) {
-                Console.WriteLine("git")
-            } else {
-                Console.Write("dupa")
-            }
+            Console.WriteLine();
+            Console.WriteLine("Press Any Key to kill the app...");
+            Console.ReadLine();
         }
     }
 }
