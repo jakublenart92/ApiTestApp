@@ -1,21 +1,28 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+
+
 
 namespace ApiTestApp
 {
     public class RestApiClient
     {
         private readonly HttpClient _httpClient;
-        
+
+
+
+
         public RestApiClient()
         {
             _httpClient = new HttpClient();
         }
 
-        public async Task<string> GetUsersAsync()
+        public async Task<List<ApiUser>> GetUsersAsync()
         {
-            var getUsersUrl = "https://gorest.co.in/public/v1/users";
+            var getUsersUrl = "https://jsonplaceholder.typicode.com/todos";
             var response = await _httpClient.GetAsync(getUsersUrl);
 
             if (!response.IsSuccessStatusCode)
@@ -25,7 +32,22 @@ namespace ApiTestApp
 
             var usersJson = await response.Content.ReadAsStringAsync();
 
-            return usersJson;
+            List<ApiUser> users = JsonConvert.DeserializeObject<List<ApiUser>>(usersJson);
+
+            return users;
+        }
+
+        public int Test()
+        {
+            throw new NotImplementedException();
         }
     }
+
+
+
+
+
+
 }
+
+
