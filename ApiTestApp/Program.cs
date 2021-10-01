@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MongoDB.Bson;
 using MongoDB.Driver;
 
 
@@ -61,34 +60,6 @@ namespace ApiTestApp
             //Console.WriteLine("Press Any Key to kill the app...");
             //Console.ReadLine();
         }
-    }
-
-    public class ApiUser
-    {
-        public int UserId;
-
-        public int id;
-
-        public string title;
-
-        public bool completed;
-
-    }
-
-
-    public class MongoDefaultObject
-    {
-
-        public ObjectId id;
-
-        public int UserId;
-
-        public int apiId;
-
-        public string title;
-
-        public bool completed;
-
     }
 
 }
