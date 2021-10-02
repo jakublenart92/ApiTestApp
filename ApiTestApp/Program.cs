@@ -22,20 +22,8 @@ namespace ApiTestApp
 
             //var users = await collection.Find(Builders<User>.Filter.Empty).ToListAsync();
 
-
-
-
-
-
             //documentInput.name = "Patrycja";
             //documentInput.isHuman = false;
-
-
-
-
-
-
-
 
             //onsole.WriteLine(dbConnection);
 
@@ -50,10 +38,6 @@ namespace ApiTestApp
                 Console.WriteLine(particularUser.title);
                 await collection.InsertOneAsync(documentInput);
             }
-
-
-
-
 
 
             //Console.WriteLine();
